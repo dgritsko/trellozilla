@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trello-Bugzilla Bookmarklet Generator</title>
+
+<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="js/util.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
+
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+   <div id="panel1" class="panel">
+      <h1>Get your Developer Key (1/5)</h1>
+	  <ol>
+		<li>Make sure you're logged into Trello</li>
+		<li>Click <a href="https://trello.com/1/appKey/generate" target="_blank" />here</a></li>
+		<li>Copy and paste the string underneath the word "<strong>Key:</strong>"</li>
+	  </ol>
+	  <input id="txtKey" oninput="window.appContainer.validateKey()" size="100" /><span id="keyValid">Not Valid</span>
+	  <br />
+	  <div class="navigation">
+		<a href="#" onclick="window.appContainer.navigateTo(1)">Next</a>
+	  </div>
+   </div>
+   <div id="panel2" class="panel">
+      <h1>Generate a Security Token (2/5)</h1>
+	  <ol>
+		<li>Click <a href="#" id="securityTokenLink" target="_blank">here</a> and click "<strong>Allow</strong>"</li>
+		<li>Copy and paste the token string:</li>
+      </ol>
+	  <input id="txtToken" oninput="window.appContainer.validateToken()" size="100" /><span id="tokenValid">Not Valid</span>
+	  <br />
+	  <div class="navigation">
+		<a href="#" onclick="window.appContainer.navigateTo(0)">Back</a>
+		<a href="#" onclick="window.appContainer.navigateTo(2)">Next</a>
+	  </div>
+   </div>
+   <div id="panel3" class="panel">
+      <h1>Select a Board (3/5)</h1>
+	  <ul>
+	     <li>Go to your board on Trello, copy the full URL of the board, then paste it below:</li>
+	  </ul>
+	  <input id="txtBoardId" oninput="window.appContainer.validateBoardId()" size="100" /><span id="boardIdValid">Not Valid</span>
+	  <br />
+	  <h2>Board Name: <span id="boardNameDisplay">N/A</span></h2>
+	  <div class="navigation">
+	     <a href="#" onclick="window.appContainer.navigateTo(1)">Back</a>
+	     <a href="#" onclick="window.appContainer.navigateTo(3)">Next</a>
+      </div>
+   </div>
+   <div id="panel4" class="panel">
+      <h1>Select a List (4/5)</h1>
+	  <ul>
+	     <li>Choose the that list you want cards to be automatically added to:</li>
+	  </ul>
+	  <div id="lists"></div>
+	  <br />	  
+	  <div class="navigation">
+	     <a href="#" onclick="window.appContainer.navigateTo(2)">Back</a>
+	     <a href="#" onclick="window.appContainer.navigateTo(4)">Next</a>
+      </div>
+   </div>   
+   <div id="panel5" class="panel">
+      <h1>Add Bookmarklet to Bookmarks Bar (5/5)</h1>
+	  <ul>
+	     <li>Drag this link to the Bookmarks toolbar on your browser:</li>
+	  </ul>
+	  <a id="bookmarklet" href="#"></a>
+	  <div class="navigation">
+		<a href="#" onclick="window.appContainer.navigateTo(3)">Back</a>
+      </div>
+   </div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+   window.appContainer = {};
+   window.appContainer.data = {};
+   initUtil(window.appContainer);
+   initMain(window.appContainer);
+});
+</script>
+</body>
+</html>

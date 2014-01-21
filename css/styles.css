@@ -1,0 +1,42 @@
+body, html {
+   font-family: arial;
+   margin: 0;
+   padding: 0;
+   background: lightgray;
+}
+
+#container {
+   padding: 20px;
+   border-radius: 10px;
+   border: 2px solid black;
+   margin-top: 50px;
+   margin-left: 50px;
+   width: 720px;
+   height: 450px;
+   background: white;
+}
+
+.navigation {
+	position: absolute;
+	top: 500px;
+}
+
+.navigation a {
+   display: block;
+   text-decoration: none;
+   border-radius: 2px;
+   width: 100px;
+   text-align: center;
+   color: black;
+   float: left;
+   margin-right: 5px;
+}
+
+.navigation a:link, .navigation a:visited {
+   border: 1px solid black;   
+}
+
+.navigation a:hover, .navigation a:active {
+   background: gray;
+   color: white;
+}
